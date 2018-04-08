@@ -64,6 +64,7 @@ brew_install scmpuff
 brew_install fzf
 brew_install nvim
 brew_install exiftool
+brew install go
 brew install android-sdk #安卓sdk
 brew cask install android-studio #安卓开发
 $(brew --prefix)/opt/fzf/install --all
