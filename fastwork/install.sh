@@ -1,19 +1,17 @@
 #!/bin/sh
-source main.sh
+source main.sh #执行main函数
 
-sudo ./install-steps/macos.sh
 
-brew install python3
+
+brew install python3 #安装Python3
 
 # install and use shadowsocks
-if not_tt_network; then
-    pip3 install shadowsocks
-    nohup sslocal -q -c ~/.macbootstrap/tools/netconf &> /private/tmp/nohup.out&
-    export ALL_PROXY=socks5://127.0.0.1:14179
-else
-    echo "You are in toutiao network, no need to install shadowsocks"
-fi
 
+pip3 install shadowsocks #安装ss 1024
+nohup sslocal -q -c ~/.Acoffee/tools/netconf &> /private/tmp/nohup.out&  #配置ss
+export ALL_PROXY=socks5://127.0.0.1:14179
+
+#安装ITerm
 if [[ ! -e /Applications/iTerm.app ]]; then
     brew cask install iterm2
     defaults delete com.googlecode.iterm2
@@ -22,26 +20,26 @@ if [[ ! -e /Applications/iTerm.app ]]; then
 else
     echo "You have installed iTerm2"
 fi
-
+#安装SourceTree
 if [[ ! -e /Applications/SourceTree.app/ ]]; then
     brew cask install sourcetree
 else
     echo "You have installed SourceTree"
 fi
-
+#安装谷歌游览器
 if [[ ! -e /Applications/Google\ Chrome.app ]]; then
     brew cask install google-chrome
 else
     echo "You have installed chrome"
 fi
-
+#安装gsed
 if brew ls --versions gnu-sed > /dev/null; then
     echo "You have installed gsed"
 else
     brew install gnu-sed
 fi
 
-# install coreutils
+# 安装彩色终端显示
 if [[ ! -e /usr/local/opt/coreutils ]]; then
     brew install coreutils
     mv /usr/local/opt/coreutils/libexec/gnubin/ls /usr/local/opt/coreutils/libexec/gnubin/gls
@@ -66,43 +64,27 @@ brew_install scmpuff
 brew_install fzf
 brew_install nvim
 brew_install exiftool
+brew install android-sdk #安卓sdk
+brew cask install android-studio #安卓开发
 $(brew --prefix)/opt/fzf/install --all
 
-# link git config
-mv ~/.gitconfig ~/.gitconfig_backup
-backup_file ~/.gitattributes
-ln -s ~/.macbootstrap/git-config/.gitconfig ~/.gitconfig
-ln -s ~/.macbootstrap/git-config/.gitattributes ~/.gitattributes
+
 
 if [[ ! -e ~/.oh-my-zsh ]]; then
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 fi
 
-# zshrc setup
-backup_file ~/.zshrc
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-ln -s ~/.macbootstrap/zsh-config/.zshrc ~/.zshrc
 
-# vim configuration
-backup_file ~/.vim
-backup_file ~/.config/nvim/
-git clone https://github.com/bestswifter/vim-config.git ~/.config/nvim
-ln -s ~/.vim ~/.config/nvim
 
-# ESLint configuration
-backup_file ~/.eslintrc.js
-backup_file ~/.eslintrc
-ln -s ~/.macbootstrap/.eslintrc.js ~/.eslintrc.js
 
-./install-steps/dependencies.before.sh
+
+
+
+./fastwork/install-steps/dependencies.before.sh
 
 unset ALL_PROXY
-./install-steps/dependencies.after.sh
-./install-steps/sogou_sync.sh
+./fastwork/install-steps/dependencies.after.sh
 
-# ssh configuration
-backup_file ~/.ssh/config
-if [[ ! -e ~/.ssh ]]; then
-    mkdir ~/.ssh
-fi
-ln -s ~/.macbootstrap/zsh-config/ssh_config ~/.ssh/config
+
+
+
