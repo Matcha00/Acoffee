@@ -1,6 +1,6 @@
 #!bin/bash
-if [[ -e ~/.macbootstrap ]]; then
-  rm -rf ~/.macbootstrap
+if [[ -e ~/.Acoffee ]]; then
+  rm -rf ~/.Acoffee
 fi
 #安装 HomeBrew
 if [[ ! -e /usr/local/bin/brew ]]; then
