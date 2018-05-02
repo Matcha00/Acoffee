@@ -11,6 +11,6 @@ fi
 
 brew install git #安装git
 
-git clone https://github.com/Matcha00/Acoffee.git ~/.Acoffee/fastwork
-cd ~/.Acoffee/fastwork/
+git clone https://github.com/Matcha00/Acoffee.git ~/.Acoffee
+cd ~/.Acoffee/fastwork
 bash install.sh #运行install脚本
