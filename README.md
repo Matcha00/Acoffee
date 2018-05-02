@@ -15,7 +15,9 @@ A cup of coffee set up the development environment
 * 常用python、go、Android、npm等一系列开发环境
 * 常用软件Dash、SourceTree等一些列软件
 * 常用命令行环境git等
+
 ##使用方法
+
 curl https://raw.githubusercontent.com/Matcha00/Acoffee/master/fastwork/fastwork.sh | sh 自动安装一切所需开发环境
 ## 感谢
 感谢 [bestswifter](https://github.com/bestswifter) 项目大部分源码来自[macbootstrap](https://github.com/bestswifter/macbootstrap) 
