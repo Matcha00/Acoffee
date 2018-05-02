@@ -1,5 +1,7 @@
 #!bin/bash
-
+if [[ -e ~/.macbootstrap ]]; then
+  rm -rf ~/.macbootstrap
+fi
 #安装 HomeBrew
 if [[ ! -e /usr/local/bin/brew ]]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
