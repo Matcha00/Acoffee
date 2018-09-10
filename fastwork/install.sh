@@ -81,10 +81,10 @@ fi
 
 
 
-./fastwork/install-steps/dependencies.before.sh
+./install-steps/dependencies.before.sh
 
 unset ALL_PROXY
-./fastwork/install-steps/dependencies.after.sh
+./install-steps/dependencies.after.sh
 
 
 
